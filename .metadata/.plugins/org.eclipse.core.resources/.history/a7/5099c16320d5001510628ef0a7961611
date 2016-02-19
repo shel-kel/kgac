@@ -1,0 +1,23 @@
+import java.io.IOException;
+import java.util.ArrayList;
+
+
+
+
+public class Finder {
+	
+	public Finder(){
+		
+	}
+	
+	public ArrayList<String> findwords(int m, int r, int c, ArrayList usedSet){
+		
+		
+		if ((m<=0)||(r<0)||(c<0)||usedSet.contains(r, c)){
+			
+		}
+	}
+	
+	
+	
+}

@@ -1,0 +1,14 @@
+
+public class Tuple {
+	
+	public String a;
+	public String b;
+
+	public Tuple(String a, String b){
+		this.a = a;
+		this.b = b;
+		
+		
+	}
+			
+}
