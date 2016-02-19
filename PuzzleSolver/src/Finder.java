@@ -23,7 +23,7 @@ public class Finder {
 			
 			//return empty list
 			
-		}.
+		}
 		
 		String letter = puzzle[r][c];
 		usedSet.add(new Point(r, c));
