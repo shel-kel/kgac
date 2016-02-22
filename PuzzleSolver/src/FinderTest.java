@@ -31,8 +31,11 @@ public class FinderTest {
 		
 		Finder finder = new Finder(puzzle);
 		
-		ArrayList<String> thing = finder.findwords(3, 0, 0, new ArrayList<Point>());
-		System.out.println(thing);
+		ArrayList<String> thing = finder.findAllWords(3);
+		for (int i = 0; i < thing.size(); i++){
+			Blue.pl(thing.get(i));
+		}
+		
 		
 		
 		
