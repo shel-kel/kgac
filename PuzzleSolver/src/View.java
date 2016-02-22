@@ -22,6 +22,11 @@ import java.awt.Dimension;
 import javax.swing.JTextArea;
 import javax.swing.JList;
 import javax.swing.JButton;
+import javax.swing.JToggleButton;
+import java.awt.Component;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
 
 public class View extends JFrame {
 	private JTable tableMat;
@@ -30,6 +35,8 @@ public class View extends JFrame {
 	
 	Object[] results;
 	private int matrixArea;
+	private JLabel lblNewLabel_1;
+	private JTextField textField;
 	public View() {
 		
 		JPanel panel = new JPanel();
@@ -40,7 +47,7 @@ public class View extends JFrame {
 		panel.add(lblNewLabel);
 		
 		
-		String[] sizeList = { "3", "4", "5", "6", "7", "8" };
+		String[] sizeList = { "3", "4", "5", "6", "7", "8", "9" };
 		
 		JComboBox sizeBox = new JComboBox(sizeList);
 		panel.add(sizeBox);
@@ -55,30 +62,39 @@ public class View extends JFrame {
 		
 		JPanel panel_1 = new JPanel();
 		getContentPane().add(panel_1, BorderLayout.CENTER);
+		panel_1.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JLabel matrixHolder = new JLabel("Matrix: ");
-		panel_1.add(matrixHolder);
+		lblNewLabel_1 = new JLabel("Matrix: (Enter numbers seperated by commas)");
+		panel_1.add(lblNewLabel_1);
 		
-		tableMat = new JTable();
-		tableMat.setSize(this.matrixArea, this.matrixArea);
-		panel_1.add(tableMat);
+		textField = new JTextField();
+		panel_1.add(textField);
+		textField.setColumns(10);
+		
+//		this.tableMat = new JTable();
+//		this.tableMat.setSize(this.matrixArea, this.matrixArea);
+//		panel_1.add(this.tableMat);
 		
 		JPanel panel_2 = new JPanel();
 		getContentPane().add(panel_2, BorderLayout.SOUTH);
 		
-		JList list = new JList(results);
-		panel_2.add(list);
+		JButton submitButton = new JButton("Submit");
+		panel_2.add(submitButton);
 		
-		JButton btnNewButton = new JButton("Enter");
-		panel_2.add(btnNewButton);
+		submitButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				onSubmitBtnClicked();
+			}
+		});
 	}
 
 	
-	protected void onEnterClicked(){
+	protected void onSubmitBtnClicked(){
+		int x = 0;
+		int y = 0;
+		int matrixSize = Integer.valueOf((String) this.sizeBox.getSelectedItem());
 		
-		String matrixSize = (String) this.sizeBox.getSelectedItem();
-		int lengthSize = (Integer) this.lengthBox.getSelectedItem();
-		
-		this.matrixArea = lengthSize;
+	
 	}
+
 }
