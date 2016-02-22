@@ -42,6 +42,8 @@ public class View extends JFrame {
 	private JTextField matrixField;
 	private String[] matrixList;
 	public View() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(300, 150);
 		
 		JPanel panel = new JPanel();
 		getContentPane().add(panel, BorderLayout.NORTH);
