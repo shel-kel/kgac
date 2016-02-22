@@ -40,7 +40,7 @@ public class View extends JFrame {
 	private int matrixArea;
 	private JLabel lblNewLabel_1;
 	private JTextField matrixField;
-	private String[][][] matrixList;
+	private String[] matrixList;
 	public View() {
 		
 		JPanel panel = new JPanel();
@@ -86,19 +86,28 @@ public class View extends JFrame {
 			}
 		});
 	}
-
 	
 	protected void onSubmitBtnClicked(){
 		int x = 0;
 		int y = 0;
+		int z = Integer.valueOf((String) this.sizeBox.getSelectedItem())^2;
+		int wordLength = Integer.valueOf((String) this.lengthBox.getSelectedItem());
 		String[][] matrix = new String[x][y];
 		int matrixSize = Integer.valueOf((String) this.sizeBox.getSelectedItem());
 		String matrixString = this.matrixField.getText();
-		java.util.List<String> this.matrixList = Arrays.asList(matrixString.split(","));
-		matrixList = 
+		this.matrixList = matrixString.split(","); 
+		
 		while (x != matrixSize) {
 			while (y != matrixSize) {
-				matrix = this.matrixList[0];
+				matrix[y][x] = this.matrixList[x];
+				x++;
+				if (y != matrixSize) {
+					y++;
+				}
+				if (y == matrixSize && x != matrixSize) {
+					x = 0;
+					y++;
+				}
 			}
 		}
 	
