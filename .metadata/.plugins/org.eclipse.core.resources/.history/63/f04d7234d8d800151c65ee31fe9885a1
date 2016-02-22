@@ -34,7 +34,7 @@ public class FinderTest {
 		ArrayList<String> thing = finder.findwords(3, 0, 0, new ArrayList<Point>());
 		System.out.println(thing);
 		
-		
+		System.out.println(puzzle.length);
 		
 
 		

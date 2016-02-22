@@ -33,8 +33,7 @@ public class Finder {
 		
 		if (m==1){
 			
-			ArrayList<String> rtn = new ArrayList<String>();
-			rtn.add(puzzle[r][c]);
+			//return usedSet?
 		}
 		
 		ArrayList<String> results = new ArrayList<String>();
@@ -51,7 +50,6 @@ public class Finder {
 				for (int i = 0; i<subwords.size(); i++){
 					
 					subwords.set(i, letter+subwords.get(i));
-				
 					results.add(subwords.get(i));
 					
 					

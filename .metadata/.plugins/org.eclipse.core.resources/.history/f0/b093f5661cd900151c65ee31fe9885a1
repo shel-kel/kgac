@@ -51,7 +51,6 @@ public class Finder {
 				for (int i = 0; i<subwords.size(); i++){
 					
 					subwords.set(i, letter+subwords.get(i));
-				
 					results.add(subwords.get(i));
 					
 					

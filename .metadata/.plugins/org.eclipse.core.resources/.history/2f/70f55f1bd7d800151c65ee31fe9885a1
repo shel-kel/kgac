@@ -21,10 +21,9 @@ public class Finder {
 		
 		Point tCheck = new Point(r, c);
 		
-		if ((m<=0)||(r<0)||(c<0)||(r>=puzzle.length)|| (c>=puzzle.length) ||usedSet.contains(tCheck)){
+		if ((m<=0)||(r<0)||(c<0)||usedSet.contains(tCheck)){
 			
-			ArrayList<String> rtn = new ArrayList<String>();
-			return rtn;
+			return null;
 			
 		}
 		
@@ -33,8 +32,7 @@ public class Finder {
 		
 		if (m==1){
 			
-			ArrayList<String> rtn = new ArrayList<String>();
-			rtn.add(puzzle[r][c]);
+			//return usedSet?
 		}
 		
 		ArrayList<String> results = new ArrayList<String>();
@@ -51,7 +49,6 @@ public class Finder {
 				for (int i = 0; i<subwords.size(); i++){
 					
 					subwords.set(i, letter+subwords.get(i));
-				
 					results.add(subwords.get(i));
 					
 					
