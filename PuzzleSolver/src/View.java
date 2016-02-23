@@ -32,15 +32,13 @@ import java.awt.Insets;
 import java.awt.List;
 
 public class View extends JFrame {
-	private JTable tableMat;
-	private JComboBox sizeBox;
-	private JComboBox lengthBox;
+	private JComboBox<String> sizeBox;
+	private JComboBox<String> lengthBox;
 	
 	Object[] results;
-	private int matrixArea;
 	private JLabel lblNewLabel_1;
 	private JTextField matrixField;
-	private String[] matrixList;
+	
 	public View() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(300, 150);
@@ -54,15 +52,15 @@ public class View extends JFrame {
 		
 		String[] sizeList = { "3", "4", "5", "6", "7", "8", "9" };
 		
-		JComboBox sizeBox = new JComboBox(sizeList);
+		JComboBox<String> sizeBox = new JComboBox<String>(sizeList);
 		panel.add(sizeBox);
 		
 		JLabel lblNewLabel_2 = new JLabel("Length:");
 		panel.add(lblNewLabel_2);
 		
-		Object[] lengthList = { "3", "4", "5", "6", "7", "8", "9" };
+		String[] lengthList = { "3", "4", "5", "6", "7", "8", "9" };
 		
-		JComboBox lengthBox = new JComboBox(lengthList);
+		JComboBox<String> lengthBox = new JComboBox<String>(lengthList);
 		panel.add(lengthBox);
 		
 		JPanel panel_1 = new JPanel();
@@ -90,29 +88,21 @@ public class View extends JFrame {
 	}
 	
 	protected void onSubmitBtnClicked(){
-		int x = 0;
-		int y = 0;
-		int z = Integer.valueOf((String) this.sizeBox.getSelectedItem())^2;
-		int wordLength = Integer.valueOf((String) this.lengthBox.getSelectedItem());
-		String[][] matrix = new String[x][y];
 		int matrixSize = Integer.valueOf((String) this.sizeBox.getSelectedItem());
+		int wordLength = Integer.valueOf((String) this.lengthBox.getSelectedItem());
+		String[][] matrix = new String[matrixSize][matrixSize];
 		String matrixString = this.matrixField.getText();
-		this.matrixList = matrixString.split(","); 
+		String[] matrixList = matrixString.split(","); 
 		
-		while (x != matrixSize) {
-			while (y != matrixSize) {
-				matrix[y][x] = this.matrixList[x];
-				x++;
-				if (y != matrixSize) {
-					y++;
-				}
-				if (y == matrixSize && x != matrixSize) {
-					x = 0;
-					y++;
-				}
+		for (int x = 0; x <= matrixSize; x++) {
+			for (int y = 0; y <= matrixSize; y++) {
+				matrix[y][x] = matrixList[x];
 			}
 		}
 	
+
+		Filter fil = new Filter();
+		Finder fin = new Finder(matrix);
 	}
 
 }

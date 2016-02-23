@@ -8,46 +8,40 @@ import java.util.ArrayList;
 //returns said list
 public class Filter {
 	Dictionary dictionary;
-	
+
 	public Filter() {
-		
+
 		try {
 			dictionary = new Dictionary();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
-	
-	
-	
-public ArrayList<String> fetchRealWords(ArrayList<String> stringList){
-		
+
+	public ArrayList<String> fetchRealWords(ArrayList<String> stringList) {
+
 		ArrayList<String> rtn = new ArrayList<String>();
-		
-		
-		for (int i = 0; i<stringList.size(); i++){
-			
+
+		for (int i = 0; i < stringList.size(); i++) {
+
 			String s = stringList.get(i);
 			boolean isReal;
-			if (dictionary.contains(s)){
+			if (dictionary.contains(s)) {
 				isReal = true;
 			} else {
 				isReal = false;
 			}
-			
-			if (isReal){
+
+			if (isReal) {
 				rtn.add(s);
 			}
-		
-			
+
 		}
-		
+
 		return rtn;
-		
+
 	}
-	
-	
 
 }
